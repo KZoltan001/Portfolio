@@ -1,0 +1,61 @@
+.bigbox1 {
+    border: 2px solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-evenly;
+
+    margin-top: 10px;
+    margin-bottom: 40px;
+    padding: 10px;
+    background-color: rgb(126, 238, 111);
+}
+
+.box1 {
+    border: 2px solid rgb(0, 0, 0);
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.aqua {
+    background-color: aqua;
+}
+
+.green {
+    background-color: lime;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.gray {
+    background-color: lightgray;
+}
+
+.pink {
+    background-color: magenta;
+}
+
+.lightblue {
+    background-color: lightblue;
+}
+
+.blue {
+    background-color: rgb(117, 100, 230);
+}
+
+#blue2 {
+    background-color: darkslategray;
+}
