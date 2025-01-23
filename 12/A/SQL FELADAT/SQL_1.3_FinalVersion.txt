@@ -1,0 +1,45 @@
+CREATE DATABASE webshopceg
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_hungarian_ci;
+
+-- Felhasználók tábla
+CREATE TABLE Felhasznalok (
+    Felh_id INT PRIMARY KEY,
+    Felhnev VARCHAR(45) NOT NULL,
+    Jelszo VARCHAR(45) NOT NULL,
+    Email VARCHAR(35) NOT NULL,
+    Aktiv BOOLEAN NOT NULL
+);
+
+-- Szerepkörök tábla
+CREATE TABLE Szerepkorok (
+    Egyedi_id INT PRIMARY KEY,
+    Szerepkor_nev VARCHAR(45) NOT NULL,
+    Leiras TEXT
+);
+
+-- Jogosultságok tábla
+CREATE TABLE Jogosultsagok (
+    Jogosult_id INT PRIMARY KEY,
+    Jogosultsag_neve VARCHAR(45) NOT NULL,
+    Leiras TEXT
+);
+
+-- Felhasználói szerepkör tábla (Kapcsolótábla: Felhasználók + Szerepkörök)
+CREATE TABLE Felhasznaloi_Szerepkor (
+    Felh_id INT,
+    Egyedi_id INT,
+    Szerepkor VARCHAR(45),
+    PRIMARY KEY (Felh_id),
+    FOREIGN KEY (Felh_id) REFERENCES Felhasznalok(Felh_id),
+    FOREIGN KEY (Egyedi_id) REFERENCES Szerepkorok(Egyedi_id)
+);
+
+-- Szerepkör-Jogosultság tábla (Kapcsolótábla: Szerepkörök + Jogosultságok)
+CREATE TABLE Szerepkor_Jogosultsag (
+    Kapocs_id INT PRIMARY KEY, 
+    Egyedi_id INT,
+    Jogosult_id INT,
+    FOREIGN KEY (Egyedi_id) REFERENCES Szerepkorok(Egyedi_id),
+    FOREIGN KEY (Jogosult_id) REFERENCES Jogosultsagok(Jogosult_id)
+);

@@ -1,0 +1,59 @@
+-- Felhasználók tábla adatainak feltöltése
+INSERT INTO Felhasznalok (Felh_id, Felhnev, Jelszo, Email, Aktiv)
+VALUES 
+(1, 'johndoe', 'jelszo123', 'johndoe@example.com', TRUE),
+(2, 'janedoe', 'janeszo456', 'janedoe@example.com', TRUE),
+(3, 'admin', 'admin123', 'admin@example.com', TRUE),
+(4, 'klaus', 'klaus789', 'klaus@example.com', FALSE),
+(5, 'maria', 'maria123', 'maria@example.com', TRUE),
+(6, 'petra', 'petra321', 'petra@example.com', TRUE),
+(7, 'zsolt', 'zsolt987', 'zsolt@example.com', TRUE),
+(8, 'andras', 'andras654', 'andras@example.com', FALSE);
+
+-- Szerepkörök tábla adatainak feltöltése
+INSERT INTO Szerepkorok (Egyedi_id, Szerepkor_nev, Leiras)
+VALUES 
+(1, 'Adminisztrátor', 'Teljes körű hozzáférés minden funkcióhoz.'),
+(2, 'Felhasználó', 'Alap hozzáférés a webshophoz, termékek megtekintése és vásárlás.'),
+(3, 'Szállító', 'Rendelések kezeléséhez szükséges hozzáférés.'),
+(4, 'Ügyfélszolgálat', 'Rendelések és felhasználói problémák kezeléséhez szükséges jogosultság.'),
+(5, 'Marketing', 'Termékek és promóciók kezelése, kampányok indítása.'),
+(6, 'Tesztelő', 'Webshop tesztelése és hibajavítások alkalmazása.'),
+(7, 'Szuperadmin', 'Minden hozzáférés és adminisztrátori jogkör.'),
+(8, 'Vezető', 'A fő adminisztrátor által biztosított jogkörök.');
+
+-- Jogosultságok tábla adatainak feltöltése
+INSERT INTO Jogosultsagok (Jogosult_id, Jogosultsag_neve, Leiras)
+VALUES 
+(1, 'Termékek hozzáadása', 'Új termékek hozzáadásának jogosultsága.'),
+(2, 'Termékek módosítása', 'Meglévő termékek módosításához szükséges jogosultság.'),
+(3, 'Rendelések kezelése', 'A rendelések nyomon követéséhez és kezeléséhez szükséges jogosultság.'),
+(4, 'Felhasználói fiókok kezelése', 'Felhasználói fiókok hozzáférése és módosítása.'),
+(5, 'Promóciók indítása', 'Új promóciók és kedvezmények kezelése.'),
+(6, 'Webshop statisztikák megtekintése', 'Webshop forgalmi adatai és statisztikák megtekintésének jogosultsága.'),
+(7, 'Felhasználók aktivitásának ellenőrzése', 'Felhasználói aktivitás és viselkedés elemzésének jogosultsága.'),
+(8, 'Adatbázis karbantartás', 'Az adatbázis karbantartásához szükséges jogok.');
+
+-- Felhasználói szerepkör tábla adatainak feltöltése
+INSERT INTO Felhasznaloi_Szerepkor (Felh_id, Egyedi_id, Szerepkor)
+VALUES 
+(1, 1, 'Adminisztrátor'),
+(2, 2, 'Felhasználó'),
+(3, 7, 'Szuperadmin'),
+(4, 3, 'Szállító'),
+(5, 4, 'Ügyfélszolgálat'),
+(6, 5, 'Marketing'),
+(7, 6, 'Tesztelő'),
+(8, 8, 'Vezető');
+
+-- Szerepkör-Jogosultság tábla adatainak feltöltése
+INSERT INTO Szerepkor_Jogosultsag (Kapocs_id, Egyedi_id, Jogosult_id)
+VALUES 
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 3),
+(4, 3, 4),
+(5, 4, 5),
+(6, 5, 6),
+(7, 6, 7),
+(8, 7, 8);
